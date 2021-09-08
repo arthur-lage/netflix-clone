@@ -33,5 +33,5 @@ yarn start
 🖥️ Deployed application
 
 You can access the application using the link below:
-(https://netflix-clone-al.vercel.app)Netflix Clone
+[Netflix Clone](https://netflix-clone-al.vercel.app/)
 
