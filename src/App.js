@@ -4,7 +4,10 @@ import MovieRow from "./components/MovieRow";
 import "./App.css";
 import FeaturedMovie from "./components/FeaturedMovie";
 import Header from "./components/Header";
+
+//eslint-disable-next-line
 import ChangeProfile from "./components/ChangeProfile";
+
 import UserContextProvider from "./contexts/UserContext";
 
 function App() {
