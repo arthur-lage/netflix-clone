@@ -1,0 +1,122 @@
+.changeProfile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.changeProfile h2 {
+  margin-top: 115px;
+  font-size: 32px;
+  animation: title-animation .5s normal forwards 1 ease;
+}
+
+.changeProfile .profiles {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  animation: profiles-animation .5s normal forwards 1 ease;
+}
+
+.changeProfile .profiles .profile {
+    display: flex;
+    flex-direction: column;
+    margin: 0 25px;
+    color: #999;
+    align-items: center;
+    border: 3px solid transparent;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.changeProfile .profiles .profile span{
+    margin-top: 20px;
+}
+
+.changeProfile .profiles .profile img{
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    transition: 0.2s ease;
+    border: 3px solid transparent;
+}
+
+.changeProfile .profiles .profile:hover img{
+    border: 3px solid #fff;
+}
+
+.changeProfile .profiles .profile:hover {
+  color: #fff;
+}
+
+.changeProfile .profiles .addProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #999;
+    transition: 0.2s ease;
+    margin-left: 50px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.changeProfile .profiles .addProfile:hover {
+    color: #fff;
+}
+
+.changeProfile .profiles .addProfile i{
+    padding: 15px;
+    font-size: 56px;
+}
+
+.manageProfiles {
+  text-decoration: none;
+  border: 3px solid #999;
+  color: #999;
+  transition: 0.2s ease;
+  padding: 12.5px 40px;
+  animation: manage-profiles-animation .75s normal forwards 1 ease;
+  margin-top: 50px;
+}
+
+.manageProfiles:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+
+@keyframes profiles-animation {
+  0%{
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes manage-profiles-animation {
+  0%{
+    filter: opacity(0);
+    transform: translateY(200px);
+  }
+  
+  100%{
+    transform: translateY(0);
+    filter: opacity(1);
+  }
+}
+
+@keyframes title-animation {
+  0%{
+    filter: opacity(0);
+  }
+
+  100%{
+    filter: opacity(1);
+  }
+}
