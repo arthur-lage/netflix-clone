@@ -1,0 +1,32 @@
+
+.lists{
+    margin-top: -150px;
+  }
+  
+  footer{
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  footer a {
+    color: rgb(51, 207, 255);
+  }
+  
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loading img{
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+  }
