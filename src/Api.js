@@ -71,5 +71,9 @@ export default {
         }
         
         return info
+    },
+    getRandomImage: async () => {
+        const res = await fetch("https://picsum.photos/200")
+        return res.url
     }
 }

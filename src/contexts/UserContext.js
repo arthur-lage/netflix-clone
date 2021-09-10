@@ -13,7 +13,7 @@ export default ({ children }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    if(JSON.parse(localStorage.getItem("netflix-clone:users")) === null){
+    if(JSON.parse(localStorage.getItem("netflix-clone:users")) === null || JSON.parse(localStorage.getItem("netflix-clone:users")) === [] || JSON.parse(localStorage.getItem("netflix-clone:users")) === undefined){
       setUsers([
         {
           avatar:
@@ -44,7 +44,7 @@ export default ({ children }) => {
       setUsers(JSON.parse(localStorage.getItem("netflix-clone:users")))
     }
 
-    if(JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === null){
+    if(JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === null || JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === {}){
       setCurrentUser({
         avatar:
           "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",
@@ -58,12 +58,10 @@ export default ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("netflix-clone:currentUser", JSON.stringify(currentUser))
-    console.log("Current user atualizado")
   }, [currentUser])
 
   useEffect(() => {
     localStorage.setItem("netflix-clone:users", JSON.stringify(users))
-    console.log("Users atualizado")
   }, [users])
 
   return (

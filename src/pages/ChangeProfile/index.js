@@ -9,7 +9,7 @@ import { UserContext } from '../../contexts/UserContext'
 export default () => {
   const history = useHistory();
 
-  const { currentUser, setCurrentUser, users, setUsers } = useContext(UserContext)
+  const { setCurrentUser, users } = useContext(UserContext)
 
   const handleProfileClick = (id) => {
     let newUser = users.filter(user => user.id === id)[0]
@@ -21,19 +21,9 @@ export default () => {
     if (users.length === 5) {
       alert("Número máximo de usuários atingido.");
     } else {
-        let id = users.length + 1
-        setUsers([...users, {
-            id,
-            avatar: "https://noirflix.netlify.app/imgs/icon3.png",
-            name: `User ${id}`
-        }])
+      history.push("/profile/create")
     }
   };
-
-  const teste = () => {
-    localStorage.setItem("netflix-clone:users", JSON.stringify(users))
-    localStorage.setItem("netflix-clone:currentUser", JSON.stringify(currentUser))
-  }
 
   return (
     <div className="changeProfile">
@@ -47,17 +37,17 @@ export default () => {
             className="profile"
           >
             <img src={user.avatar} alt={user.name} />
-            <span>{user.name}</span>
+            <span>{user.name.length > 15 ? user.name.substring(0, 12) + '...' : user.name}</span>
           </div>
         ))}
         <div onClick={handleAddProfile} className="addProfile">
           <i className="fas fa-plus-circle"></i>
-          <p>Add Profile</p>
+          <p>Adicionar perfil</p>
         </div>
       </div>
 
-      <a onClick={teste} className="manageProfiles" href="/profiles">
-        MANAGE PROFILES
+      <a className="manageProfiles" href="/profiles">
+          Editar perfís
       </a>
     </div>
   );

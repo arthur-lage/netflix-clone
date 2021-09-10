@@ -1,0 +1,126 @@
+.createProfile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+    justify-content: center;
+}
+
+.container{
+    width: 500px;
+}
+
+h2{
+    font-size: 48px;
+    text-align: center;
+    animation: title-animation .5s normal forwards 1 ease;
+    margin-bottom: 50px;
+    font-family: "Roboto", sans-serif;
+}
+
+.profileFields{
+    display: flex;
+    animation: fields-animation .5s normal forwards 1 ease;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+.profileFields input{
+    margin: 20px 0;
+    width: 100%;
+    outline: none;
+    border-radius: 4px;
+    padding: 10px;
+    border: 0;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    height: 40px;
+    background: rgb(100, 100, 100);
+    transition: .2s ease;
+    color: white;
+}
+
+.profileFields input::placeholder{
+    color: white;
+}
+
+.profileFields input:focus{
+    background: rgb(146, 146, 146);
+}
+
+.profileActions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: actions-animation .75s normal forwards 1 ease;
+}
+
+.profileActions .cancel{
+    color: white;
+    font-size: 16px;
+    font-family: "Roboto";
+    transition: .2s ease;
+    background: rgba(0, 0, 0, 0.3);
+    border: 0;
+    height: 45px;
+    width: 225px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profileActions .cancel:hover{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.profileActions .save{
+    background: #e50914;
+    color: white;
+    font-size: 16px;
+    font-family: "Roboto";
+    transition: .2s ease;
+    height: 45px;
+    width: 225px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profileActions .save:hover{
+    background: #fa2b36;
+}
+
+
+@keyframes fields-animation {
+    0%{
+      opacity: 0;
+      transform: translateY(200px);
+    }
+  
+    100%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes actions-animation {
+    0%{
+      filter: opacity(0);
+      transform: translateY(200px);
+    }
+    
+    100%{
+      transform: translateY(0);
+      filter: opacity(1);
+    }
+  }
+  
+  @keyframes title-animation {
+    0%{
+      filter: opacity(0);
+    }
+  
+    100%{
+      filter: opacity(1);
+    }
+  }
