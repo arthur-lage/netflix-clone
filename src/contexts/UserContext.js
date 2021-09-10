@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 export const UserContext = createContext();
 
 //eslint-disable-next-line
@@ -10,32 +10,61 @@ export default ({ children }) => {
     id: 1,
   });
 
-  const [users, setUsers] = useState([
-    {
-      avatar:
-        "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",
-      name: "User 1",
-      id: 1,
-    },
-    {
-      avatar:
-        "https://ih1.redbubble.net/image.618427277.3222/flat,800x800,075,f.u2.jpg",
-      name: "User 2",
-      id: 2,
-    },
-    {
-      avatar:
-        "https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png",
-      name: "User 3",
-      id: 3,
-    },
-    {
-      avatar:
-        "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png",
-      name: "User 4",
-      id: 4,
-    },
-  ]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem("netflix-clone:users")) === null){
+      setUsers([
+        {
+          avatar:
+            "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",
+          name: "User 1",
+          id: 1,
+        },
+        {
+          avatar:
+            "https://ih1.redbubble.net/image.618427277.3222/flat,800x800,075,f.u2.jpg",
+          name: "User 2",
+          id: 2,
+        },
+        {
+          avatar:
+            "https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png",
+          name: "User 3",
+          id: 3,
+        },
+        {
+          avatar:
+            "https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png",
+          name: "User 4",
+          id: 4,
+        },
+      ])
+    } else {
+      setUsers(JSON.parse(localStorage.getItem("netflix-clone:users")))
+    }
+
+    if(JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === null){
+      setCurrentUser({
+        avatar:
+          "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",
+        name: "User 1",
+        id: 1,
+      })
+    } else {
+      setCurrentUser(JSON.parse(localStorage.getItem("netflix-clone:currentUser")))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("netflix-clone:currentUser", JSON.stringify(currentUser))
+    console.log("Current user atualizado")
+  }, [currentUser])
+
+  useEffect(() => {
+    localStorage.setItem("netflix-clone:users", JSON.stringify(users))
+    console.log("Users atualizado")
+  }, [users])
 
   return (
     <UserContext.Provider

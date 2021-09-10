@@ -9,7 +9,7 @@ import { UserContext } from '../../contexts/UserContext'
 export default () => {
   const history = useHistory();
 
-  const { setCurrentUser, users, setUsers } = useContext(UserContext)
+  const { currentUser, setCurrentUser, users, setUsers } = useContext(UserContext)
 
   const handleProfileClick = (id) => {
     let newUser = users.filter(user => user.id === id)[0]
@@ -27,9 +27,13 @@ export default () => {
             avatar: "https://noirflix.netlify.app/imgs/icon3.png",
             name: `User ${id}`
         }])
-    //   history.push("/profile/create")
     }
   };
+
+  const teste = () => {
+    localStorage.setItem("netflix-clone:users", JSON.stringify(users))
+    localStorage.setItem("netflix-clone:currentUser", JSON.stringify(currentUser))
+  }
 
   return (
     <div className="changeProfile">
@@ -52,7 +56,7 @@ export default () => {
         </div>
       </div>
 
-      <a className="manageProfiles" href="/profiles">
+      <a onClick={teste} className="manageProfiles" href="/profiles">
         MANAGE PROFILES
       </a>
     </div>
