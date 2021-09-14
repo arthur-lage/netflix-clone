@@ -20,7 +20,7 @@ export default ({ isBlack }) => {
       </div>
       <div className="header--user">
         <Link to="/profile">
-          <img src={currentUser.avatar} alt="Usuário" />
+          <img src={currentUser.avatar} alt={currentUser.name} />
         </Link>
       </div>
     </header>

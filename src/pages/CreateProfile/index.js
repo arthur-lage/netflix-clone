@@ -39,7 +39,7 @@ export default () => {
   return (
     <div className="createProfile">
       <div className="container">
-        <h2>Criação de perfil</h2>
+        <h2 className="createProfileTitle">Criação de perfil</h2>
         <div className="profileFields">
           <input
             placeholder="Nome do perfil"
@@ -57,10 +57,10 @@ export default () => {
           />
         </div>
         <div className="profileActions">
-          <button className="cancel" onClick={handleCancel}>
+          <button className="actionButton" onClick={handleCancel}>
             Cancelar
           </button>
-          <button className="save" onClick={handleSave}>
+          <button className="actionButton" onClick={handleSave}>
             Salvar perfil
           </button>
         </div>

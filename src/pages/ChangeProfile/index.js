@@ -46,7 +46,7 @@ export default () => {
         </div>
       </div>
 
-      <a className="manageProfiles" href="/profiles">
+      <a className="manageProfiles" href="/profile/edit">
           Editar perfís
       </a>
     </div>

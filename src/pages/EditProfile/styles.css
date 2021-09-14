@@ -1,0 +1,166 @@
+.editProfile{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 100px;
+}
+
+.editProfile .profiles {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  animation: profiles-animation .5s forwards 1 ease;
+}
+
+.editProfile .profile {
+  display: flex;
+  flex-direction: column;
+  margin: 7.5px 0;
+  color: #999;
+  align-items: center;
+  border: 3px solid transparent;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.editProfile .profile span {
+  margin-top: 10px;
+}
+.editProfile .profile img {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+  border: 3px solid transparent;
+}
+
+.editProfile .profile:hover img {
+  border: 3px solid #fff;
+}
+
+.editProfile .profile img.active{
+  border: 3px solid #fff;
+}
+
+.editProfile .profile:hover {
+  color: #fff;
+}
+
+.editProfile .divisor{
+    height: 90%;
+    width: 2px;
+    margin-left: 75px;
+    margin-right: 75px;
+    background: #999;
+    animation: only-fade-animation .5s forwards 1 ease;
+  }
+  
+  .editProfile .editingSection{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: editing-section-animation .5s forwards 1 ease;
+  }
+  
+.editProfile .editingSection .content .inputFields{
+  display: flex;
+  flex-direction: column;
+}
+
+.editProfile .return-button {
+  animation: only-fade-animation .5s forwards 1 ease;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  transition: .2s ease;
+  border: 3px solid #ffffff8c;
+}
+
+.editProfile .return-button:hover{
+  border-color: white;
+}
+
+.editProfile .return-button-icon{
+  transition: .2s ease;
+  color: #ffffff8c;
+}
+
+.editProfile .return-button-icon:hover{
+  color: #fff;
+}
+
+.editProfile .title {
+  position: absolute;
+  top: 30px;
+  left: 48%;
+  animation: only-fade-animation .5s forwards 1 ease;
+}
+
+.editProfile .inputFields input{
+  margin: 20px 0;
+  width: 650px;
+  outline: none;
+  border-radius: 4px;
+  padding: 10px;
+  border: 0;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  height: 40px;
+  background: rgb(100, 100, 100);
+  transition: .2s ease;
+  color: white;
+}
+
+.editProfile .inputFields input::placeholder{
+  color: white;
+}
+
+.editProfile .inputFields input:focus{
+  background: rgb(146, 146, 146);
+}
+
+.editProfile .actions{
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+@keyframes profiles-animation {
+  from{
+    opacity: 0;
+    transform: translateX(-600px);
+  } to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes only-fade-animation {
+  from{
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+@keyframes editing-section-animation {
+  from{
+    opacity: 0;
+    transform: translateY(600px);
+  } to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

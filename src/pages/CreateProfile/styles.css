@@ -11,7 +11,7 @@
     width: 500px;
 }
 
-h2{
+.createProfileTitle {
     font-size: 48px;
     text-align: center;
     animation: title-animation .5s normal forwards 1 ease;
@@ -55,41 +55,6 @@ h2{
     justify-content: space-between;
     animation: actions-animation .75s normal forwards 1 ease;
 }
-
-.profileActions .cancel{
-    color: white;
-    font-size: 16px;
-    font-family: "Roboto";
-    transition: .2s ease;
-    background: rgba(0, 0, 0, 0.3);
-    border: 0;
-    height: 45px;
-    width: 225px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.profileActions .cancel:hover{
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.profileActions .save{
-    background: #e50914;
-    color: white;
-    font-size: 16px;
-    font-family: "Roboto";
-    transition: .2s ease;
-    height: 45px;
-    width: 225px;
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.profileActions .save:hover{
-    background: #fa2b36;
-}
-
 
 @keyframes fields-animation {
     0%{
