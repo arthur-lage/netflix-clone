@@ -98,15 +98,15 @@ export default () => {
                 value={nameText}
                 onChange={(e) => setNameText(e.target.value)}
                 type="text"
-                className="nameField"
                 placeholder="Nome do perfil"
+                className="customInput"
                 />
               <input
                 value={imageText}
                 onChange={(e) => setImageText(e.target.value)}
                 type="url"
-                className="imageField"
                 placeholder="Imagem do perfil (opcional)"
+                className="customInput"
               />
             </div>
             <div className="actions">

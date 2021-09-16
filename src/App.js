@@ -14,11 +14,23 @@ import EditProfile from "./pages/EditProfile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-import UserContextProvider, { UserContext } from "./contexts/UserContext";
-import React, { useContext } from "react";
+import UserContextProvider from "./contexts/UserContext";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  const { isLogged } = useContext(UserContext);
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    if(sessionStorage.getItem("netflix-clone:isLogged") !== null){
+      setIsLogged(JSON.parse(sessionStorage.getItem("netflix-clone:isLogged")))
+    } else {
+      setIsLogged(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    sessionStorage.setItem("netflix-clone:isLogged", JSON.stringify(isLogged))
+  }, [isLogged])
 
   return (
     <Router>
@@ -38,10 +50,10 @@ function App() {
               {isLogged ? <EditProfile /> : <Redirect to="/login" />}
             </Route>
             <Route path="/login" exact>
-              {isLogged ? <Redirect to="/" /> : <Login />}
+              {isLogged ? <Redirect to="/" /> : <Login setIsLogged={setIsLogged} />}
             </Route>
             <Route path="/register" exact>
-              {isLogged ? <Redirect to="/" /> : <Register />}
+              {isLogged ? <Redirect to="/" /> : <Register setIsLogged={setIsLogged} />}
             </Route>
           </div>
         </Switch>

@@ -10,7 +10,6 @@ export default ({ children }) => {
     id: 1,
   });
   const [users, setUsers] = useState([]);
-  const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
     if(JSON.parse(localStorage.getItem("netflix-clone:users")) === null || JSON.parse(localStorage.getItem("netflix-clone:users")) === [] || JSON.parse(localStorage.getItem("netflix-clone:users")) === undefined){
@@ -62,9 +61,10 @@ export default ({ children }) => {
     localStorage.setItem("netflix-clone:users", JSON.stringify(users))
   }, [users])
 
+
   return (
     <UserContext.Provider
-      value={{ currentUser, setCurrentUser, users, setUsers, isLogged, setIsLogged }}
+      value={{ currentUser, setCurrentUser, users, setUsers }}
     >
       {children}
     </UserContext.Provider>

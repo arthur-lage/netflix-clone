@@ -1,0 +1,57 @@
+.register {
+  overflow: hidden;
+}
+
+.register h1 {
+  text-align: center;
+  padding-top: 85px;
+  animation: fade-only-animation 0.4s normal 1 forwards ease;
+}
+
+.register .inputFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0 30px 0;
+  animation: fade-move-up-animation 0.4s normal 1 forwards ease;
+}
+
+.register .linkWrapper {
+  animation: fade-move-up-animation 0.5s normal 1 forwards ease;
+}
+
+.register .link {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.register .link:hover {
+  text-decoration: underline;
+}
+
+.register .buttonWrapper {
+  animation: fade-move-up-animation 0.6s normal 1 forwards ease;
+}
+
+@keyframes fade-move-up-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-only-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

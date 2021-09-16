@@ -11,6 +11,11 @@ export default () => {
 
   const { setCurrentUser, users } = useContext(UserContext)
 
+  const resetProfiles = () => {
+    localStorage.removeItem("netflix-clone:users")
+    history.go(0)
+  }
+
   const handleProfileClick = (id) => {
     let newUser = users.filter(user => user.id === id)[0]
     setCurrentUser(newUser)
@@ -49,6 +54,8 @@ export default () => {
       <a className="manageProfiles" href="/profile/edit">
           Editar perfís
       </a>
+
+      <button className="resetProfiles" onClick={resetProfiles}>Resetar perfís</button>
     </div>
   );
 };

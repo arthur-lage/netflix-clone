@@ -47,6 +47,7 @@ export default () => {
             type="text"
             name="profileName"
             id="profileName"
+            className="customInput"
           />
           <input
             placeholder="Imagem de perfil (Opcional)"
@@ -54,6 +55,7 @@ export default () => {
             type="url"
             name="imageURL"
             id="imageURL"
+            className="customInput"
           />
         </div>
         <div className="profileActions">
