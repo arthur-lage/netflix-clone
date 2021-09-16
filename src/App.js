@@ -1,25 +1,50 @@
 import "./App.css";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
-import Home from './pages/Home'
+import Home from "./pages/Home";
 import ChangeProfile from "./pages/ChangeProfile";
-import CreateProfile from './pages/CreateProfile'
-import EditProfile from './pages/EditProfile'
+import CreateProfile from "./pages/CreateProfile";
+import EditProfile from "./pages/EditProfile";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
-import UserContextProvider from "./contexts/UserContext";
+import UserContextProvider, { UserContext } from "./contexts/UserContext";
+import React, { useContext } from "react";
 
 function App() {
+  const { isLogged } = useContext(UserContext);
 
   return (
     <Router>
       <UserContextProvider>
-        <div className="App">
-          <Route path="/" exact component={Home} />
-          <Route path="/profile" exact component={ChangeProfile} />
-          <Route path="/profile/create" exact component={CreateProfile} />
-          <Route path="/profile/edit" exact component={EditProfile} />
-        </div>
+        <Switch>
+          <div className="App">
+            <Route path="/" exact>
+              {isLogged ? <Home /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/profile" exact>
+              {isLogged ? <ChangeProfile /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/profile/create" exact>
+              {isLogged ? <CreateProfile /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/profile/edit" exact>
+              {isLogged ? <EditProfile /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/login" exact>
+              {isLogged ? <Redirect to="/" /> : <Login />}
+            </Route>
+            <Route path="/register" exact>
+              {isLogged ? <Redirect to="/" /> : <Register />}
+            </Route>
+          </div>
+        </Switch>
       </UserContextProvider>
     </Router>
   );
