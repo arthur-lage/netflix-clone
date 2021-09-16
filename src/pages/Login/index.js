@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./styles.css";
+import { validate } from "react-email-validator";
 
 // eslint-disable-next-line
 export default ({ setIsLogged }) => {
@@ -12,8 +13,12 @@ export default ({ setIsLogged }) => {
     if (email.length === 0 || password.length === 0) {
       alert("Verifique os dados e tente novamente");
     } else {
-      setIsLogged(true);
-      history.push("/");
+      if(validate(email) === false){
+        alert("Use um email válido")
+      } else {
+        setIsLogged(true);
+        history.push("/");
+      }
     }
   };
 

@@ -21,41 +21,47 @@ function App() {
   const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
-    if(sessionStorage.getItem("netflix-clone:isLogged") !== null){
-      setIsLogged(JSON.parse(sessionStorage.getItem("netflix-clone:isLogged")))
+    if (sessionStorage.getItem("netflix-clone:isLogged") !== null) {
+      setIsLogged(JSON.parse(sessionStorage.getItem("netflix-clone:isLogged")));
     } else {
-      setIsLogged(false)
+      setIsLogged(false);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    sessionStorage.setItem("netflix-clone:isLogged", JSON.stringify(isLogged))
-  }, [isLogged])
+    sessionStorage.setItem("netflix-clone:isLogged", JSON.stringify(isLogged));
+  }, [isLogged]);
 
   return (
     <Router>
       <UserContextProvider>
         <Switch>
-          <div className="App">
-            <Route path="/" exact>
-              {isLogged ? <Home /> : <Redirect to="/login" />}
-            </Route>
-            <Route path="/profile" exact>
-              {isLogged ? <ChangeProfile /> : <Redirect to="/login" />}
-            </Route>
-            <Route path="/profile/create" exact>
-              {isLogged ? <CreateProfile /> : <Redirect to="/login" />}
-            </Route>
-            <Route path="/profile/edit" exact>
-              {isLogged ? <EditProfile /> : <Redirect to="/login" />}
-            </Route>
-            <Route path="/login" exact>
-              {isLogged ? <Redirect to="/" /> : <Login setIsLogged={setIsLogged} />}
-            </Route>
-            <Route path="/register" exact>
-              {isLogged ? <Redirect to="/" /> : <Register setIsLogged={setIsLogged} />}
-            </Route>
-          </div>
+          <Route path="/" exact>
+            {isLogged ? <Home /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/profile" exact>
+            {isLogged ? <ChangeProfile /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/profile/create" exact>
+            {isLogged ? <CreateProfile /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/profile/edit" exact>
+            {isLogged ? <EditProfile /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/login" exact>
+            {isLogged ? (
+              <Redirect to="/" />
+            ) : (
+              <Login setIsLogged={setIsLogged} />
+            )}
+          </Route>
+          <Route path="/register" exact>
+            {isLogged ? (
+              <Redirect to="/" />
+            ) : (
+              <Register setIsLogged={setIsLogged} />
+            )}
+          </Route>
         </Switch>
       </UserContextProvider>
     </Router>
