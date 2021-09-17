@@ -9,7 +9,9 @@ export default ({ children }) => {
     name: "User 1",
     id: 1,
   });
+
   const [users, setUsers] = useState([]);
+  const [accounts, setAccounts] = useState([]);
 
   const resetUsers = () => {
     setUsers([
@@ -37,43 +39,73 @@ export default ({ children }) => {
         name: "User 4",
         id: 4,
       },
-    ])
-  }
+    ]);
+  };
 
   useEffect(() => {
-    if(JSON.parse(localStorage.getItem("netflix-clone:users")) === null || JSON.parse(localStorage.getItem("netflix-clone:users")).lenght === 0 || JSON.parse(localStorage.getItem("netflix-clone:users")) === undefined){
-      resetUsers()
+    if (
+      JSON.parse(localStorage.getItem("netflix-clone:users")) === null ||
+      JSON.parse(localStorage.getItem("netflix-clone:users")).lenght === 0 ||
+      JSON.parse(localStorage.getItem("netflix-clone:users")) === undefined
+    ) {
+      resetUsers();
     } else {
-      setUsers(JSON.parse(localStorage.getItem("netflix-clone:users")))
+      setUsers(JSON.parse(localStorage.getItem("netflix-clone:users")));
     }
 
-    if(JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === null || JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === {}){
+    if (
+      JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === null ||
+      JSON.parse(localStorage.getItem("netflix-clone:currentUser")) === {}
+    ) {
       setCurrentUser({
         avatar:
           "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",
         name: "User 1",
         id: 1,
-      })
+      });
     } else {
-      setCurrentUser(JSON.parse(localStorage.getItem("netflix-clone:currentUser")))
+      setCurrentUser(
+        JSON.parse(localStorage.getItem("netflix-clone:currentUser"))
+      );
     }
-  }, [])
-  useEffect(() => {
-    localStorage.setItem("netflix-clone:currentUser", JSON.stringify(currentUser))
-  }, [currentUser])
-  useEffect(() => {
-    if(users.length === 0){
-      resetUsers()
-      localStorage.setItem("netflix-clone:users", JSON.stringify(users))
-    } else {
-      localStorage.setItem("netflix-clone:users", JSON.stringify(users))
-    }
-  }, [users])
 
+    if (
+      JSON.parse(localStorage.getItem("netflix-clone:accounts")) == null ||
+      JSON.parse(localStorage.getItem("netflix-clone:accounts")).lenght === 0 ||
+      JSON.parse(localStorage.getItem("netflix-clone:accounts")) === undefined
+    ) {
+      setAccounts([]);
+    } else {
+      setAccounts(JSON.parse(localStorage.getItem("netflix-clone:accounts")));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "netflix-clone:currentUser",
+      JSON.stringify(currentUser)
+    );
+  }, [currentUser]);
+
+  useEffect(() => {
+    localStorage.setItem("netflix-clone:users", JSON.stringify(users));
+  }, [users]);
+
+  useEffect(() => {
+    localStorage.setItem("netflix-clone:accounts", JSON.stringify(accounts));
+  }, [accounts]);
 
   return (
     <UserContext.Provider
-      value={{ currentUser, setCurrentUser, users, setUsers, resetUsers }}
+      value={{
+        currentUser,
+        setCurrentUser,
+        users,
+        setUsers,
+        resetUsers,
+        accounts,
+        setAccounts,
+      }}
     >
       {children}
     </UserContext.Provider>

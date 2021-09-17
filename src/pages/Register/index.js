@@ -1,7 +1,8 @@
 import "./styles.css";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-var validate = require('react-email-validator')
+import { UserContext } from "../../contexts/UserContext";
+import { validate } from "react-email-validator";
 
 // eslint-disable-next-line
 export default ({ setIsLogged }) => {
@@ -9,6 +10,7 @@ export default ({ setIsLogged }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { accounts, setAccounts } = useContext(UserContext)
 
   const handleRegister = () => {
     if (name.length === 0 || email.length === 0 || password.length === 0) {
@@ -17,8 +19,16 @@ export default ({ setIsLogged }) => {
       if(validate(email) === false){
         alert("Use um email válido")
       } else {
-        setIsLogged(true);
-        history.push("/");
+        const newAccount = {
+          name,
+          email,
+          password
+        }
+
+        setAccounts([...accounts, newAccount])
+
+        setIsLogged(true)
+        history.push("/")
       }
     }
   };

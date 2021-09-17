@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./styles.css";
 
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import { UserContext } from '../../contexts/UserContext'
 
@@ -50,9 +50,9 @@ export default () => {
         </div>
       </div>
 
-      <a className="manageProfiles" href="/profile/edit">
+      <Link className="manageProfiles" to="/profile/edit">
           Editar perfís
-      </a>
+      </Link>
 
       <button className="resetProfiles" onClick={resetProfiles}>Resetar perfís</button>
     </div>

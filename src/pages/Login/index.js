@@ -16,8 +16,15 @@ export default ({ setIsLogged }) => {
       if(validate(email) === false){
         alert("Use um email válido")
       } else {
-        setIsLogged(true);
-        history.push("/");
+        const accounts = JSON.parse(localStorage.getItem("netflix-clone:accounts"))
+        const account = accounts.filter(account => account.email === email && account.password === password)
+
+        if(account.length === 0){
+          alert("Não foi possível encontrar essa conta.\nVerifique os dados ou tente criar uma nova conta")
+        } else {
+          setIsLogged(true);
+          history.push("/");
+        }
       }
     }
   };
