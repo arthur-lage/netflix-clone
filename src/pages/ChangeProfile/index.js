@@ -9,11 +9,10 @@ import { UserContext } from '../../contexts/UserContext'
 export default () => {
   const history = useHistory();
 
-  const { setCurrentUser, users } = useContext(UserContext)
+  const { setCurrentUser, users, resetUsers } = useContext(UserContext)
 
   const resetProfiles = () => {
-    localStorage.removeItem("netflix-clone:users")
-    history.go(0)
+    resetUsers()
   }
 
   const handleProfileClick = (id) => {

@@ -20,20 +20,24 @@ export default () => {
   };
 
   const handleSave = async () => {
-    let id = users.length + 1;
-    let name = currentName.length === 0 ? `User ${id}` : currentName;
-    let avatar =
-      currentAvatar.length === 0 ? await Api.getRandomImage() : currentAvatar;
-
-    let newUser = {
-      id,
-      avatar,
-      name,
-    };
-
-    setUsers([...users, newUser]);
-
-    history.push("/profile");
+    if(users.length - 1 === 0){
+      alert("Você precisar ter no mínimo um usuário")
+    } else {
+      let id = users.length + 1;
+      let name = currentName.length === 0 ? `User ${id}` : currentName;
+      let avatar =
+        currentAvatar.length === 0 ? await Api.getRandomImage() : currentAvatar;
+  
+      let newUser = {
+        id,
+        avatar,
+        name,
+      };
+  
+      setUsers([...users, newUser]);
+  
+      history.push("/profile");
+    }
   };
 
   return (
