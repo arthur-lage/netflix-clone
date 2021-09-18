@@ -19,16 +19,20 @@ export default ({ setIsLogged }) => {
       if(validate(email) === false){
         alert("Use um email válido")
       } else {
-        const newAccount = {
-          name,
-          email,
-          password
+        if(accounts.filter(account => account.email === email).length > 0){
+          alert("Uma conta com essas credenciais já foi criada")
+        } else {
+          const newAccount = {
+            name,
+            email,
+            password
+          }
+
+          setAccounts([...accounts, newAccount])
+
+          setIsLogged(true)
+          history.push("/")
         }
-
-        setAccounts([...accounts, newAccount])
-
-        setIsLogged(true)
-        history.push("/")
       }
     }
   };
