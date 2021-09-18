@@ -1,10 +1,14 @@
 .register {
   overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .register h1 {
   text-align: center;
-  padding-top: 85px;
   animation: fade-only-animation 0.4s normal 1 forwards ease;
 }
 
@@ -12,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0 30px 0;
+  margin: 20px 20px;
   animation: fade-move-up-animation 0.4s normal 1 forwards ease;
 }
 
@@ -53,5 +57,86 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 1440px){
+  .register h1{
+    font-size: 42px;
+  }
+
+  .register .customInput{
+    width: 750px;
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .register .link {
+    font-size: 19px;
+  }
+
+  .actionButton{
+    width: 250px;
+    height: 60px;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 560px){
+  .register h1{
+    font-size: 28px;
+  }
+
+  .register .customInput{
+    width: 450px;
+  }
+
+  .register .link {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 425px){
+  .register h1{
+    font-size: 28px;
+  }
+
+  .register .customInput{
+    width: 350px;
+  }
+
+  .register .link {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .register .customInput{
+    width: 325px;
+  }
+
+  .register .link {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .register .customInput{
+    width: 275px;
+  }
+
+  .register .link {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 280px){
+  .register .customInput{
+    width: 225px;
+  }
+
+  .register .link {
+    font-size: 13px;
   }
 }

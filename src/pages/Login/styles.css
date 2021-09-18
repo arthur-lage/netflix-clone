@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0 30px 0;
+  margin: 30px 0 30px 0;
   animation: fade-move-up-animation .4s normal 1 forwards ease;
 }
 
@@ -60,6 +60,43 @@
   }
 }
 
+@media only screen and (min-width: 1440px){
+  .register h1{
+    font-size: 42px;
+  }
+
+  .register .customInput{
+    width: 750px;
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .register .link {
+    font-size: 19px;
+  }
+
+  .actionButton{
+    width: 250px;
+    height: 60px;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 560px){
+  .login h1{
+    font-size: 28px;
+  }
+
+  .login .customInput{
+    width: 450px;
+  }
+
+  .login .link {
+    font-size: 14px;
+  }
+}
+
 @media only screen and (max-width: 425px){
   .login h1{
     font-size: 28px;
@@ -84,12 +121,22 @@
   }
 }
 
-@media only screen and (max-width: 375px){
+@media only screen and (max-width: 320px){
   .login .customInput{
     width: 275px;
   }
 
   .link {
     font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 280px){
+  .login .customInput{
+    width: 225px;
+  }
+
+  .login .link {
+    font-size: 11.5px;
   }
 }
