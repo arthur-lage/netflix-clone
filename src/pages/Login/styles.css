@@ -1,10 +1,15 @@
 .login {
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .login h1 {
   text-align: center;
-  padding-top: 130px;  animation: fade-only-animation .4s normal 1 forwards ease;
+  animation: fade-only-animation .4s normal 1 forwards ease;
 }
 
 .login .inputFields {
@@ -52,5 +57,39 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 425px){
+  .login h1{
+    font-size: 28px;
+  }
+
+  .login .customInput{
+    width: 350px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .login .customInput{
+    width: 325px;
+  }
+
+  .link {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .login .customInput{
+    width: 275px;
+  }
+
+  .link {
+    font-size: 12px;
   }
 }
